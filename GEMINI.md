@@ -18,6 +18,9 @@ This project follows strict engineering standards to ensure code quality, mainta
 ## Documentation
 - **README.md**: The project must maintain a `README.md` file that documents the configuration and usage of the software in a descriptive and readable manner. It should include example use cases with in-line command line code blocks.
 
+## Continuous Integration
+- **GitHub Actions**: The project must utilize GitHub Actions for Continuous Integration. A workflow should be triggered on every push and pull request to the `main` branch, executing the unit tests, logic audits (Pylint), and security audits (Ruff-Bandit).
+
 ## Build & Tooling
 - **Build System**: Bazel (Bzlmod enabled).
 - **Dependency Management**: `uv` (ingest `uv.lock`). Unused dependencies must be rigorously removed from `pyproject.toml`.
