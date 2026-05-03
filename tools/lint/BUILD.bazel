@@ -11,6 +11,5 @@ py_binary(
         "@pypi//pylint",
         "@pypi//requests",
         "@pypi//pytest",
-        "@pypi//pytest_shard",
     ],
 )

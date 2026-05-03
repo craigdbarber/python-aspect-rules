@@ -8,11 +8,10 @@ dependencies = [
     "requests",
     "pytest",
     "pylint",
-    "pytest-shard",
     "ruff",
-    "build",
-    "setuptools",
-    "wheel",
+    "build>=1.5.0",
+    "setuptools>=82.0.1",
+    "wheel>=0.47.0",
 ]
 
 [build-system]
