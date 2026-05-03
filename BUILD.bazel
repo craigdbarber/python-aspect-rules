@@ -1,6 +1,10 @@
 load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_library", "py_test")
 
-exports_files(["ruff.toml", "pyproject.toml"])
+exports_files([
+    "ruff.toml",
+    "pyproject.toml",
+    "src/__init__.py",
+])
 
 # --- Libraries and Binaries ---
 
@@ -17,6 +21,14 @@ py_binary(
     srcs = ["src/main.py"],
     imports = ["."],
     deps = [":lib"],
+    visibility = ["//visibility:public"],
+)
+
+# --- Bandit ---
+
+alias(
+    name = "bandit",
+    actual = "//tools/lint:bandit",
 )
 
 # --- Pytest ---

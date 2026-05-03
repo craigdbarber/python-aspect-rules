@@ -22,3 +22,21 @@ py_binary(
     visibility = ["//visibility:public"],
     deps = ["@pypi//bandit"],
 )
+
+load("@aspect_rules_py//py:defs.bzl", "py_test")
+
+py_test(
+    name = "bandit_test",
+    srcs = ["bandit_runner.py"],
+    main = "bandit_runner.py",
+    args = [
+        "-r",
+        "src",
+    ],
+    data = [
+        "//:lib",
+        "//:main",
+        "//:src/__init__.py",
+    ],
+    deps = ["@pypi//bandit"],
+)

@@ -24,5 +24,11 @@ jobs:
       - name: Build and Run Audits (Linting/Security)
         run: bazel build --config=lint //...
 
+      - name: Check Formatting
+        run: bazel run //tools/format -- --check
+
+      - name: Run Bandit Security Audit
+        run: bazel test //tools/lint:bandit_test
+
       - name: Run Unit Tests
         run: bazel test //...

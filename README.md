@@ -28,11 +28,12 @@ uv lock
 Bazel automatically ingests `uv.lock` via the `uv` module extension.
 
 ### Formatting & Linting
-Formatting is handled by **Ruff** and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds.
+Formatting is handled by **Ruff** and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds (except in CI, where it is enforced via a check).
 
 Linting is configured as Bazel aspects:
 - **Pylint**: For deep logic and performance analysis.
 - **Ruff (Bandit)**: For automated security auditing.
+- **Bandit (Standalone)**: A dedicated test target for deep security analysis.
 
 ## Usage Examples
 
@@ -50,6 +51,12 @@ To execute unit tests via Pytest:
 bazel test //:test_lib
 ```
 
+To run the dedicated security audit:
+
+```bash
+bazel test //tools/lint:bandit_test
+```
+
 ### Running Audits (Linting)
 To run logic and security audits across the entire project:
 
@@ -57,11 +64,23 @@ To run logic and security audits across the entire project:
 bazel build --config=lint //...
 ```
 
-### Manual Formatting
+You can also run the standalone Bandit tool via an alias:
+
+```bash
+bazel run //:bandit -- -r src
+```
+
+### Formatting
 To manually trigger the code formatter:
 
 ```bash
 bazel run //tools/format
+```
+
+To check formatting without modifying files (e.g., for CI):
+
+```bash
+bazel run //tools/format -- --check
 ```
 
 ### Adding Dependencies
