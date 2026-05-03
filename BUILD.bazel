@@ -1,0 +1,55 @@
+load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_library", "py_test")
+
+exports_files(["ruff.toml", "pyproject.toml"])
+
+# --- Libraries and Binaries ---
+
+py_library(
+    name = "lib",
+    srcs = ["src/lib.py"],
+    imports = ["."],
+    deps = ["@pypi//requests"],
+    visibility = ["//visibility:public"],
+)
+
+py_binary(
+    name = "main",
+    srcs = ["src/main.py"],
+    imports = ["."],
+    deps = [":lib"],
+)
+
+# --- Pytest ---
+
+py_test(
+    name = "test_lib",
+    srcs = [
+        "tests/test_lib.py",
+        "tests/pytest_runner.py",
+    ],
+    imports = ["."],
+    main = "tests/pytest_runner.py",
+    args = ["tests/test_lib.py"],
+    deps = [
+        ":lib",
+        "@pypi//pytest",
+    ],
+)
+
+# --- Pylint ---
+
+py_test(
+    name = "pylint_test",
+    srcs = [
+        "tests/run_pylint.py",
+        "src/main.py",
+        "src/lib.py",
+        "tests/test_lib.py",
+    ],
+    imports = ["."],
+    main = "tests/run_pylint.py",
+    deps = [
+        "@pypi//pylint",
+        "@pypi//requests",
+    ],
+)

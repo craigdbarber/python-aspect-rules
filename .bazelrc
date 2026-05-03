@@ -1,0 +1,7 @@
+common --enable_bzlmod
+common --@pypi//venv=python-aspect-rules
+
+# Lint configuration
+build:lint --aspects=//tools/lint:linters.bzl%pylint
+build:lint --output_groups=rules_lint_report
+build:lint --@aspect_rules_lint//lint:fail_on_violation
