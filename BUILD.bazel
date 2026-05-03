@@ -40,16 +40,15 @@ py_test(
 
 py_test(
     name = "pylint_test",
-    srcs = [
-        "tests/run_pylint.py",
-        "src/main.py",
-        "src/lib.py",
-        "tests/test_lib.py",
-    ],
+    srcs = glob([
+        "src/**/*.py",
+        "tests/**/*.py",
+    ]),
     imports = ["."],
     main = "tests/run_pylint.py",
     deps = [
         "@pypi//pylint",
         "@pypi//requests",
+        "@pypi//pytest",
     ],
 )
