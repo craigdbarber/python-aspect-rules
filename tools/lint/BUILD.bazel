@@ -11,5 +11,14 @@ py_binary(
         "@pypi//pylint",
         "@pypi//requests",
         "@pypi//pytest",
+        "@pypi//bandit",
     ],
+)
+
+py_binary(
+    name = "bandit",
+    srcs = ["bandit_runner.py"],
+    main = "bandit_runner.py",
+    visibility = ["//visibility:public"],
+    deps = ["@pypi//bandit"],
 )
