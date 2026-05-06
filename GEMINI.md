@@ -11,8 +11,9 @@ This project follows strict engineering standards to ensure code quality, mainta
 
 ## Git Workflow
 - **Branching**: Utilize the **Git Flow** branch structure (`feature/`, `bugfix/`, `release/`, `hotfix/`).
+- **Submission**: Direct pushes to the `main` branch are strictly prohibited. All changes must be submitted via **Pull Requests** from a dedicated feature or fix branch.
 - **Commits**: All changes must be committed with descriptive, readable, and well-structured commit messages.
-- **Code Reviews**: Every changeset must undergo a rigorous code review before merging. Reviews should focus on adherence to idiomatic code, readability, security best practices, and performance optimization.
+- **Code Reviews**: Every Pull Request must undergo a rigorous code review before merging. Reviews should focus on adherence to idiomatic code, readability, security best practices, and performance optimization.
 - **Automated Audits**: Security linting is automated via Ruff's Bandit rule set (`S`). Performance and logic audits are performed via Pylint.
 
 ## Documentation
