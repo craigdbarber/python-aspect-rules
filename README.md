@@ -11,6 +11,10 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
 - **Advanced Linting**: Combined Pylint (logic/performance) and Ruff (security/style) audits.
 - **Unit Testing**: Pytest integration with hermetic execution.
 
+## Architecture
+
+For a detailed deep-dive into the build system design, dependencies, and tool integrations, see the [Build Architecture & Design](build-architecture.md) document.
+
 ## Prerequisites
 
 - [uv](https://github.com/astral-sh/uv)
