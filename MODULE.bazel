@@ -21,7 +21,7 @@ use_repo(tools, "rules_py_tools")
 
 # Setup linting
 lint_tools = use_extension("@aspect_rules_lint//lint:extensions.bzl", "tools")
-lint_tools.vale(name = "vale", tag = "v3.7.0")
+lint_tools.vale(name = "vale", tag = "v3.1.0")
 use_repo(
     lint_tools,
     "vale_Linux_64-bit",
