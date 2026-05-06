@@ -92,6 +92,7 @@ To add a new package:
 
 ```bash
 uv add requests
+uv lock
 bazel run //:main
 ```
 
