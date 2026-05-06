@@ -9,7 +9,7 @@ exports_files([
 
 filegroup(
     name = "markdown_docs",
-    srcs = glob(["*.md"]),
+    srcs = glob(["**/*.md"]),
     visibility = ["//visibility:public"],
 )
 
