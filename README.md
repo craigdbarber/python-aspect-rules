@@ -102,6 +102,43 @@ uv lock
 bazel run //:main
 ```
 
+## Getting Started: Adopting the Blueprint
+
+Follow these steps to incorporate this architecture into your own project:
+
+1. **Bootstrap**: Clone the blueprint and initialize a fresh repository.
+   ```bash
+   git clone https://github.com/craigdbarber/bazel-python-hermetic-blueprint.git my-new-project
+   cd my-new-project
+   rm -rf .git && git init
+   ```
+
+2. **Configure**: Update the project name in `MODULE.bazel` and `pyproject.toml`.
+   - In `MODULE.bazel`: Change `module(name = "bazel_python_hermetic_blueprint", ...)`
+   - In `pyproject.toml`: Update the `name`, `version`, and `description`.
+
+3. **Develop**: Place your application code in `src/` and tests in `tests/`.
+
+4. **Define Targets**: Update the root `BUILD.bazel` to include your new libraries and binaries.
+   ```python
+   py_library(
+       name = "my_lib",
+       srcs = ["src/my_lib.py"],
+       visibility = ["//visibility:public"],
+   )
+   ```
+
+5. **Add Dependencies**: Use `uv` to manage your Python packages.
+   ```bash
+   uv add pandas
+   uv lock
+   ```
+
+6. **Audit**: Ensure everything meets the blueprint's standards.
+   ```bash
+   bazel build --config=lint //...
+   ```
+
 ## Technology Stack
 
 This project leverages the following best-in-class tools and libraries:
