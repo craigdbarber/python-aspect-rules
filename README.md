@@ -105,3 +105,26 @@ bazel run //:main
 ## Engineering Standards
 
 This project adheres to the standards defined in `GEMINI.md`, including Google docstring conventions, comprehensive type hinting, and the Git Flow workflow.
+
+## Technology Stack
+
+This project leverages the following best-in-class tools and libraries:
+
+### Build System & Core
+- [**Bazel**](https://bazel.build): The core build and test runner.
+- [**Bazelisk**](https://github.com/bazelbuild/bazelisk): A user-friendly launcher for Bazel.
+- [**uv**](https://github.com/astral-sh/uv): Extremely fast Python package installer and resolver.
+- [**aspect_rules_py**](https://github.com/aspect-build/rules_py): Advanced Bazel rules for Python with uv integration.
+- [**rules_python**](https://github.com/bazelbuild/rules_python): Official Bazel rules for Python.
+- [**aspect_bazel_lib**](https://github.com/aspect-build/bazel-lib): Common utility libraries for Bazel rules.
+
+### Linting, Formatting & Security
+- [**Ruff**](https://docs.astral.sh/ruff/): An extremely fast Python linter and code formatter.
+- [**Pylint**](https://pylint.readthedocs.io/): A comprehensive static code analysis tool for Python.
+- [**Bandit**](https://bandit.readthedocs.io/): A tool designed to find common security issues in Python code.
+- [**Vale**](https://vale.sh): A syntax-aware linter for prose and documentation.
+- [**aspect_rules_lint**](https://github.com/aspect-build/rules_lint): A Bazel framework for running linters and formatters.
+
+### Python Libraries
+- [**Pytest**](https://docs.pytest.org/): A mature full-featured Python testing tool.
+- [**requests**](https://requests.readthedocs.io/): An elegant and simple HTTP library for Python.
