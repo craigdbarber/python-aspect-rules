@@ -102,10 +102,6 @@ uv lock
 bazel run //:main
 ```
 
-## Engineering Standards
-
-This project adheres to the standards defined in `GEMINI.md`, including Google docstring conventions, comprehensive type hinting, and the Git Flow workflow.
-
 ## Technology Stack
 
 This project leverages the following best-in-class tools and libraries:
