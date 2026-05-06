@@ -160,4 +160,3 @@ This project leverages the following best-in-class tools and libraries:
 
 ### Python Libraries
 - [**Pytest**](https://docs.pytest.org/): A mature full-featured Python testing tool.
-- [**requests**](https://requests.readthedocs.io/): An elegant and simple HTTP library for Python.
