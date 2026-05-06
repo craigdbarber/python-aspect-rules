@@ -60,11 +60,17 @@ The project employs a multi-layered approach to code quality and security.
 Linting is decoupled from the main build graph using Bazel Aspects defined in [`tools/lint/linters.bzl`](tools/lint/linters.bzl). This allows audits to run in parallel without affecting the compilation or execution of the libraries themselves.
 - **Pylint**: Used for deep logical analysis and performance audits.
 - **Ruff**: Handles style enforcement and fast security checks.
+- **Vale**: Used for Markdown linting and prose style enforcement.
 
 ### Security Auditing (Bandit)
 Security is enforced at two levels:
 1. **Ruff-Bandit**: Integrated into the standard linting workflow for immediate developer feedback.
 2. **Standalone Audit**: A dedicated [`py_test`](tools/lint/BUILD.bazel) target (`//tools/lint:bandit_test`) that performs a comprehensive recursive scan of the [`src/`](src/) directory.
+
+### Markdown Quality Control
+Markdown files are linted using **Vale** to ensure documentation standards are met.
+1. **Linting Aspect**: Integrated into the standard linting workflow via `linters.bzl`.
+2. **Linting Test**: A dedicated `sh_test` target (`//tools/lint:markdown_lint_test`) provides explicit validation in CI.
 
 ## Infrastructure Dependencies
 

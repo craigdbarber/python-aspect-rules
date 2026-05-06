@@ -4,7 +4,20 @@ exports_files([
     "ruff.toml",
     "pyproject.toml",
     "src/__init__.py",
+    ".vale.ini",
 ])
+
+filegroup(
+    name = "markdown_docs",
+    srcs = glob(["*.md"]),
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "vale",
+    actual = "@vale//:vale",
+    visibility = ["//visibility:public"],
+)
 
 # --- Libraries and Binaries ---
 

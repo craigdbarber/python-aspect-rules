@@ -30,5 +30,8 @@ jobs:
       - name: Run Bandit Security Audit
         run: bazel test //tools/lint:bandit_test
 
+      - name: Run Markdown Lint Audit
+        run: bazel test //tools/lint:markdown_lint_test
+
       - name: Run Unit Tests
         run: bazel test //...

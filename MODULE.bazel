@@ -6,6 +6,7 @@ bazel_dep(name = "aspect_rules_py", version = "1.11.2")
 bazel_dep(name = "aspect_rules_lint", version = "2.0.0")
 bazel_dep(name = "aspect_bazel_lib", version = "2.19.3")
 bazel_dep(name = "rules_python", version = "1.1.0")
+bazel_dep(name = "rules_multitool", version = "1.0.0")
 
 # Setup hermetic Python toolchain using aspect_rules_py
 interpreters = use_extension("@aspect_rules_py//py/unstable:extension.bzl", "python_interpreters")
@@ -19,9 +20,12 @@ tools.rules_py_tools()
 use_repo(tools, "rules_py_tools")
 
 # Setup linting
-lint = use_extension("@aspect_rules_lint//lint:extensions.bzl", "lint")
+lint_tools = use_extension("@aspect_rules_lint//lint:extensions.bzl", "tools")
+lint_tools.vale(name = "vale", tag = "v3.7.0")
+use_repo(lint_tools, vale = "vale_macOS_arm64")
 
 # Setup uv and parse the lockfile
+
 uv = use_extension("@aspect_rules_py//uv/unstable:extension.bzl", "uv")
 uv.declare_hub(
     hub_name = "pypi",
