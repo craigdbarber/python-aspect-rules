@@ -13,27 +13,27 @@ The build system is designed around three pillars:
 The following diagram illustrates the interaction between the user CLI, the Bazel wrapper, dependency management via `uv`, and the various audit/test targets.
 
 ```mermaid
-graph TD
-    User([User/CLI]) --> Bazelisk[Bazelisk Launcher]
-    Bazelisk --> Wrapper[tools/bazel Wrapper]
+flowchart TD
+    User(["User/CLI"]) --> Bazelisk["Bazelisk Launcher"]
+    Bazelisk --> Wrapper["tools/bazel Wrapper"]
     
-    subgraph "Execution Phase"
-        Wrapper -->|Auto-format| RuffFmt[Ruff Formatter]
-        Wrapper -->|Delegate| BazelBin[Bazel Binary]
+    subgraph EXEC ["Execution Phase"]
+        Wrapper -->|"Auto-format"| RuffFmt["Ruff Formatter"]
+        Wrapper -->|"Delegate"| BazelBin["Bazel Binary"]
     end
     
-    subgraph "Dependency Management"
-        BazelBin --> UVExt[UV Module Extension]
-        UVExt --> UVLock[uv.lock]
-        UVExt --> PyProject[pyproject.toml]
-        UVExt --> Hub[@pypi Repo Hub]
+    subgraph DEP ["Dependency Management"]
+        BazelBin --> UVExt["UV Module Extension"]
+        UVExt --> UVLock["uv.lock"]
+        UVExt --> PyProject["pyproject.toml"]
+        UVExt --> Hub["@pypi Repo Hub"]
     end
     
-    subgraph "Build & Audit"
-        BazelBin --> Targets[Build Targets]
-        BazelBin -->|Aspects| Linters[Pylint & Ruff Aspects]
-        BazelBin -->|Tests| Pytest[Pytest Runner]
-        BazelBin -->|Security| Bandit[Bandit Standalone Test]
+    subgraph AUDIT ["Build & Audit"]
+        BazelBin --> Targets["Build Targets"]
+        BazelBin -->|"Aspects"| Linters["Pylint & Ruff Aspects"]
+        BazelBin -->|"Tests"| Pytest["Pytest Runner"]
+        BazelBin -->|"Security"| Bandit["Bandit Standalone Test"]
     end
 ```
 
