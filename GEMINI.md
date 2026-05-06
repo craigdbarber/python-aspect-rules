@@ -21,6 +21,7 @@ This project follows strict engineering standards to ensure code quality, mainta
 
 ## Continuous Integration
 - **GitHub Actions**: The project must utilize GitHub Actions for Continuous Integration. A workflow should be triggered on every push and pull request to the `main` branch, executing the unit tests, logic audits (Pylint), and security audits (Ruff-Bandit).
+- **Automated Remediation**: Whenever a change is pushed to GitHub, Gemini must autonomously monitor the subsequent CI run at `https://github.com/craigdbarber/bazel-python-hermetic-blueprint/actions`. If the CI pipeline fails due to the introduced change, Gemini is required to diagnose the error, fix it, and re-submit the correction without waiting for manual intervention.
 
 ## Build & Tooling
 - **Build System**: Bazel (Bzlmod enabled).
