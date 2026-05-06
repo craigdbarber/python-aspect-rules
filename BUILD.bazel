@@ -14,8 +14,28 @@ filegroup(
 )
 
 alias(
+    name = "vale_macos",
+    actual = select({
+        "@platforms//cpu:arm64": "@vale_macOS_arm64//:vale",
+        "//conditions:default": "@vale_macOS_64-bit//:vale",
+    }),
+)
+
+alias(
+    name = "vale_linux",
+    actual = select({
+        "@platforms//cpu:arm64": "@vale_Linux_arm64//:vale",
+        "//conditions:default": "@vale_Linux_64-bit//:vale",
+    }),
+)
+
+alias(
     name = "vale",
-    actual = "@vale//:vale",
+    actual = select({
+        "@platforms//os:macos": ":vale_macos",
+        "@platforms//os:linux": ":vale_linux",
+        "//conditions:default": ":vale_linux",
+    }),
     visibility = ["//visibility:public"],
 )
 

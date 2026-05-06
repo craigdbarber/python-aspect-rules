@@ -39,10 +39,14 @@ py_test(
 sh_test(
     name = "markdown_lint_test",
     srcs = ["vale_test_runner.sh"],
-    args = ["$(locations //:markdown_docs)"],
+    args = [
+        "$(rootpath //:vale)",
+        "$(locations //:markdown_docs)",
+    ],
     data = [
         "//:markdown_docs",
         "//:.vale.ini",
-        "@vale//:vale",
+        "//:vale",
     ],
 )
+

@@ -4,14 +4,17 @@
 # Exit on error
 set -e
 
-# Find the vale binary in the runfiles
-# We look in the parent directory as well because external repos are siblings to _main
-VALE_BIN=$(find -L .. -name vale -type f | head -n 1)
+# The first argument is the path to the vale binary
+VALE_BIN="$1"
+shift
 
-if [ -z "$VALE_BIN" ]; then
-    echo "Error: vale binary not found"
-    find -L .. -maxdepth 2
+if [ -z "$VALE_BIN" ] || [ ! -f "$VALE_BIN" ]; then
+    echo "Error: vale binary not found at '$VALE_BIN'"
     exit 1
+fi
+
+if [ ! -x "$VALE_BIN" ]; then
+    chmod +x "$VALE_BIN"
 fi
 
 echo "Using vale binary: $VALE_BIN"
