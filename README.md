@@ -1,4 +1,4 @@
-# Python Aspect Rules Demo
+# Bazel Python Hermetic Blueprint
 
 A modern Python project demonstrating the integration of **Bazel** (via `aspect_rules_py`), **uv** for dependency management, and a robust linting/formatting toolchain.
 

@@ -1,4 +1,4 @@
-# Project Mandates
+# Bazel Python Hermetic Blueprint
 
 This project follows strict engineering standards to ensure code quality, maintainability, and consistent workflow.
 

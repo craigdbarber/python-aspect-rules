@@ -1,5 +1,5 @@
 module(
-    name = "python_aspect_rules_demo",
+    name = "bazel_python_hermetic_blueprint",
     version = "1.0",
 )
 bazel_dep(name = "aspect_rules_py", version = "1.11.2")

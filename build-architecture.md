@@ -1,6 +1,6 @@
 # Build Architecture & Design
 
-This document provides a comprehensive overview of the build system architecture for the `python-aspect-rules-demo` project.
+This document provides a comprehensive overview of the build system architecture for the `bazel-python-hermetic-blueprint` project.
 
 ## Core Philosophy
 The build system is designed around three pillars:
