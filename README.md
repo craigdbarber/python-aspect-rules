@@ -2,6 +2,22 @@
 
 A modern Python project demonstrating the integration of **Bazel** (via `aspect_rules_py`), **uv** for dependency management, and a robust linting/formatting toolchain.
 
+## Table of Contents
+- [Features](#features)
+- [Architecture](#architecture)
+- [Prerequisites](#prerequisites)
+- [Configuration](#configuration)
+  - [Dependency Management](#dependency-management)
+  - [Formatting & Linting](#formatting--linting)
+- [Usage Examples](#usage-examples)
+  - [Running the Application](#running-the-application)
+  - [Running Tests](#running-tests)
+  - [Running Audits (Linting)](#running-audits-linting)
+  - [Formatting](#formatting)
+  - [Adding Dependencies](#adding-dependencies)
+- [Getting Started: Adopting the Blueprint](#getting-started-adopting-the-blueprint)
+- [Technology Stack](#technology-stack)
+
 ## Features
 
 - **Python 3.14**: Utilizing the latest Python features and hermetic toolchains.
