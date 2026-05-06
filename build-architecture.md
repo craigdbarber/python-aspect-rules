@@ -69,8 +69,9 @@ Security is enforced at two levels:
 
 ### Markdown Quality Control
 Markdown files are linted using **Vale** to ensure documentation standards are met.
-1. **Linting Aspect**: Integrated into the standard linting workflow via `linters.bzl`.
-2. **Linting Test**: A dedicated `sh_test` target (`//tools/lint:markdown_lint_test`) provides explicit validation in CI.
+1. **Linting Aspect**: Integrated into the standard linting workflow via `linters.bzl`. It runs automatically during `bazel build --config=lint //...`.
+2. **Linting Test**: A dedicated `sh_test` target (`//tools/lint:markdown_lint_test`) provides explicit validation in CI and local testing.
+3. **Hermeticity**: Vale binaries are managed as external repositories and selected based on the execution platform using Bazel's `select` mechanism.
 
 ## Infrastructure Dependencies
 

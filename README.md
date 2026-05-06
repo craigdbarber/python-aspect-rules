@@ -61,6 +61,12 @@ To run the dedicated security audit:
 bazel test //tools/lint:bandit_test
 ```
 
+To run the markdown documentation audit:
+
+```bash
+bazel test //tools/lint:markdown_lint_test
+```
+
 ### Running Audits (Linting)
 To run logic and security audits across the entire project:
 
