@@ -31,9 +31,10 @@ flowchart TD
     
     subgraph AUDIT ["Build & Audit"]
         BazelBin --> Targets["Build Targets"]
-        BazelBin -->|"Aspects"| Linters["Pylint & Ruff Aspects"]
+        BazelBin -->|"Aspects"| Linters["Pylint, Ruff & Vale Aspects"]
         BazelBin -->|"Tests"| Pytest["Pytest Runner"]
         BazelBin -->|"Security"| Bandit["Bandit Standalone Test"]
+        BazelBin -->|"Docs"| Vale["Vale Documentation Test"]
     end
 ```
 
