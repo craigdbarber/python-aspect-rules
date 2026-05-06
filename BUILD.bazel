@@ -13,19 +13,19 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 
-alias(
+sh_binary(
     name = "vale_macos",
-    actual = select({
-        "@platforms//cpu:arm64": "@vale_macOS_arm64//:vale",
-        "//conditions:default": "@vale_macOS_64-bit//:vale",
+    srcs = select({
+        "@platforms//cpu:arm64": ["@vale_macOS_arm64//:vale"],
+        "//conditions:default": ["@vale_macOS_64-bit//:vale"],
     }),
 )
 
-alias(
+sh_binary(
     name = "vale_linux",
-    actual = select({
-        "@platforms//cpu:arm64": "@vale_Linux_arm64//:vale",
-        "//conditions:default": "@vale_Linux_64-bit//:vale",
+    srcs = select({
+        "@platforms//cpu:arm64": ["@vale_Linux_arm64//:vale"],
+        "//conditions:default": ["@vale_Linux_64-bit//:vale"],
     }),
 )
 
