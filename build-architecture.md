@@ -37,7 +37,7 @@ flowchart TD
         BazelBin -->|"Bandit Aspect"| Bandit["Security Audit"]
         BazelBin -->|"Flake8 Aspect"| Flake8["Style & Syntax"]
         BazelBin -->|"Ty Aspect"| Ty["Type Checking"]
-        BazelBin -->|"Tests"| Pytest["Pytest Runner"]
+        BazelBin -->|"Tests"| Pytest["Native Pytest Integration"]
     end
 ```
 

@@ -24,8 +24,8 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
 - **Bazel (Bzlmod)**: High-performance build system with modular dependency management.
 - **uv Integration**: Fast, reliable Python dependency resolution and locking.
 - **Automated Formatting**: Ruff-based formatting integrated into the Bazel workflow.
-- **Advanced Linting**: Combined Pylint (logic/performance) and Ruff (security/style) audits.
-- **Unit Testing**: Pytest integration with hermetic execution.
+- **Advanced Linting**: Combined Pylint, Ruff, Vale, Bandit, Flake8, and Ty audits.
+- **Unit Testing**: Native Pytest integration with hermetic execution.
 
 ## Architecture
 
@@ -51,9 +51,12 @@ Bazel automatically ingests `uv.lock` via the `uv` module extension.
 Formatting is handled by **Ruff** and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds (except in CI, where it is enforced via a check).
 
 Linting is configured as Bazel aspects:
-- Pylint: For deep logic and performance analysis.
-- Ruff (Bandit): For automated style enforcement and security auditing.
-- Vale: For documentation and prose linting.
+- **Pylint**: For deep logic and performance analysis.
+- **Ruff**: For fast security, style, and docstring auditing.
+- **Vale**: For documentation and prose linting.
+- **Bandit**: Dedicated security audit.
+- **Flake8**: Traditional style enforcement.
+- **Ty**: Fast, Rust-based type checking.
 
 ## Usage Examples
 
@@ -160,6 +163,8 @@ This project leverages the following best-in-class tools and libraries:
 - [**Ruff**](https://docs.astral.sh/ruff/): An extremely fast Python linter and code formatter.
 - [**Pylint**](https://pylint.readthedocs.io/): A comprehensive static code analysis tool for Python.
 - [**Bandit**](https://bandit.readthedocs.io/): A tool designed to find common security issues in Python code.
+- [**Flake8**](https://flake8.pycqa.org/): A traditional tool for checking style and syntax.
+- [**Ty**](https://docs.astral.sh/ty/): A fast, Rust-based type checker for Python.
 - [**Vale**](https://vale.sh): A syntax-aware linter for prose and documentation.
 - [**aspect_rules_lint**](https://github.com/aspect-build/rules_lint): A Bazel framework for running linters and formatters.
 
