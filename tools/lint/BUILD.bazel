@@ -12,6 +12,7 @@ py_binary(
         "@pypi//requests",
         "@pypi//pytest",
         "@pypi//bandit",
+        "@pypi//flake8",
     ],
 )
 
@@ -23,30 +24,10 @@ py_binary(
     deps = ["@pypi//bandit"],
 )
 
-load("@aspect_rules_py//py:defs.bzl", "py_test")
-
-py_test(
-    name = "bandit_test",
-    srcs = ["bandit_runner.py"],
-    main = "bandit_runner.py",
-    args = [
-        "-r",
-        "src",
-    ],
-    deps = ["@pypi//bandit"],
+py_binary(
+    name = "flake8",
+    srcs = ["flake8_runner.py"],
+    main = "flake8_runner.py",
+    visibility = ["//visibility:public"],
+    deps = ["@pypi//flake8"],
 )
-
-sh_test(
-    name = "markdown_lint_test",
-    srcs = ["vale_test_runner.sh"],
-    args = [
-        "$(rootpath //:vale)",
-        "$(locations //:markdown_docs)",
-    ],
-    data = [
-        "//:markdown_docs",
-        "//:.vale.ini",
-        "//:vale",
-    ],
-)
-

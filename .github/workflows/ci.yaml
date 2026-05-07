@@ -21,17 +21,12 @@ jobs:
           disk-cache: true
           repository-cache: true
 
-      - name: Build and Run Audits (Linting/Security)
+      - name: Build and Run Audits (Linting/Security/Docs)
         run: bazel build --config=lint //...
 
       - name: Check Formatting
         run: bazel run //tools/format -- --check
 
-      - name: Run Bandit Security Audit
-        run: bazel test //tools/lint:bandit_test
-
-      - name: Run Markdown Lint Audit
-        run: bazel test //tools/lint:markdown_lint_test
-
       - name: Run Unit Tests
         run: bazel test //...
+

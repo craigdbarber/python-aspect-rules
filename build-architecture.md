@@ -31,10 +31,13 @@ flowchart TD
     
     subgraph AUDIT ["Build & Audit"]
         BazelBin --> Targets["Build Targets"]
-        BazelBin -->|"Aspects"| Linters["Pylint, Ruff & Vale Aspects"]
-        BazelBin -->|"Tests"| Pytest["Pytest Runner"]
-        BazelBin -->|"Security"| Bandit["Bandit Standalone Test"]
-        BazelBin -->|"Docs"| Vale["Vale Documentation Test"]
+        BazelBin -->|"Pylint Aspect"| Pylint["Logic & Performance"]
+        BazelBin -->|"Ruff Aspect"| Ruff["Security & Style"]
+        BazelBin -->|"Vale Aspect"| ValeAspect["Documentation/Prose"]
+        BazelBin -->|"Bandit Aspect"| Bandit["Security Audit"]
+        BazelBin -->|"Flake8 Aspect"| Flake8["Style & Syntax"]
+        BazelBin -->|"Ty Aspect"| Ty["Type Checking"]
+        BazelBin -->|"Tests"| Pytest["Native Pytest Integration"]
     end
 ```
 
@@ -60,19 +63,19 @@ The project employs a multi-layered approach to code quality and security.
 ### Linting via Aspects
 Linting is decoupled from the main build graph using Bazel Aspects defined in [`tools/lint/linters.bzl`](tools/lint/linters.bzl). This allows audits to run in parallel without affecting the compilation or execution of the libraries themselves.
 - **Pylint**: Used for deep logical analysis and performance audits.
-- **Ruff**: Handles style enforcement and fast security checks.
+- **Ruff**: Handles style enforcement and fast security checks (including docstring rules).
 - **Vale**: Used for Markdown linting and prose style enforcement.
+- **Bandit**: Dedicated security audit aspect.
+- **Flake8**: Traditional Python style and syntax enforcement.
+- **Ty**: Fast, Rust-based type checking and diagnostic tool.
 
 ### Security Auditing (Bandit)
-Security is enforced at two levels:
-1. **Ruff-Bandit**: Integrated into the standard linting workflow for immediate developer feedback.
-2. **Standalone Audit**: A dedicated [`py_test`](tools/lint/BUILD.bazel) target (`//tools/lint:bandit_test`) that performs a comprehensive recursive scan of the [`src/`](src/) directory.
+Security is enforced via **Ruff-Bandit** and a dedicated **Bandit aspect**. This ensures that security checks are run automatically during `bazel build --config=lint //...`.
 
 ### Markdown Quality Control
 Markdown files are linted using **Vale** to ensure documentation standards are met.
 1. **Linting Aspect**: Integrated into the standard linting workflow via `linters.bzl`. It runs automatically during `bazel build --config=lint //...`.
-2. **Linting Test**: A dedicated `sh_test` target (`//tools/lint:markdown_lint_test`) provides explicit validation in CI and local testing.
-3. **Hermeticity**: Vale binaries are managed as external repositories and selected based on the execution platform using Bazel's `select` mechanism.
+2. **Hermeticity**: Vale binaries are managed as external repositories and selected based on the execution platform using Bazel's `select` mechanism.
 
 ## Infrastructure Dependencies
 

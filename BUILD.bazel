@@ -5,6 +5,7 @@ exports_files([
     "pyproject.toml",
     "src/__init__.py",
     ".vale.ini",
+    ".flake8",
 ])
 
 filegroup(
@@ -14,7 +15,7 @@ filegroup(
 )
 
 sh_binary(
-    name = "vale_macos",
+    name = "vale_macos", 
     srcs = select({
         "@platforms//cpu:arm64": ["@vale_macOS_arm64//:vale"],
         "//conditions:default": ["@vale_macOS_64-bit//:vale"],
@@ -68,32 +69,12 @@ alias(
 
 py_test(
     name = "test_lib",
-    srcs = [
-        "tests/test_lib.py",
-        "tests/pytest_runner.py",
-    ],
+    srcs = ["tests/test_lib.py"],
     imports = ["."],
-    main = "tests/pytest_runner.py",
-    args = ["tests/test_lib.py"],
+    pytest_main = True,
     deps = [
         ":lib",
         "@pypi//pytest",
     ],
 )
 
-# --- Pylint ---
-
-py_test(
-    name = "pylint_test",
-    srcs = glob([
-        "src/**/*.py",
-        "tests/**/*.py",
-    ]),
-    imports = ["."],
-    main = "tests/run_pylint.py",
-    deps = [
-        "@pypi//pylint",
-        "@pypi//requests",
-        "@pypi//pytest",
-    ],
-)
