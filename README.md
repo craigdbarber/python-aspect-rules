@@ -113,7 +113,6 @@ bazel run //:main
 
 ## Deep Dives & Blog Posts
 
-- **[How to Finally Fix "Works on My Machine" with a Hermetic Python Blueprint](blogs/index.html)**: A deep dive into the philosophy and implementation of this project, presented in a blog post format.
 - **[Build Architecture & Design](build-architecture.md)**: Detailed technical documentation of the build system.
 
 ## Getting Started: Adopting the Blueprint
