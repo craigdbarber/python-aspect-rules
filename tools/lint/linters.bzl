@@ -1,4 +1,5 @@
 load("@aspect_rules_lint//lint:bandit.bzl", "lint_bandit_aspect")
+load("@aspect_rules_lint//lint:buildifier.bzl", "lint_buildifier_aspect")
 load("@aspect_rules_lint//lint:flake8.bzl", "lint_flake8_aspect")
 load("@aspect_rules_lint//lint:pylint.bzl", "lint_pylint_aspect")
 load("@aspect_rules_lint//lint:ruff.bzl", "lint_ruff_aspect")
@@ -33,4 +34,8 @@ flake8 = lint_flake8_aspect(
 ty = lint_ty_aspect(
     binary = Label("@aspect_rules_lint//lint:ty_bin"),
     config = Label("//:pyproject.toml"),
+)
+
+buildifier = lint_buildifier_aspect(
+    binary = Label("@buildifier_prebuilt//:buildifier"),
 )

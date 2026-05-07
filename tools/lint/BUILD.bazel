@@ -8,11 +8,11 @@ py_binary(
     main = "pylint_runner.py",
     visibility = ["//visibility:public"],
     deps = [
-        "@pypi//pylint",
-        "@pypi//requests",
-        "@pypi//pytest",
         "@pypi//bandit",
         "@pypi//flake8",
+        "@pypi//pylint",
+        "@pypi//pytest",
+        "@pypi//requests",
     ],
 )
 

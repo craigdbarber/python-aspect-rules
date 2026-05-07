@@ -2,16 +2,22 @@ module(
     name = "bazel_python_hermetic_blueprint",
     version = "1.0",
 )
+
 bazel_dep(name = "aspect_rules_py", version = "1.11.2")
-bazel_dep(name = "aspect_rules_lint", version = "2.0.0")
+bazel_dep(name = "aspect_rules_lint", version = "2.5.2")
 bazel_dep(name = "aspect_bazel_lib", version = "2.19.3")
 bazel_dep(name = "rules_python", version = "1.1.0")
 bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "buildifier_prebuilt", version = "8.5.1")
 
 # Setup hermetic Python toolchain using aspect_rules_py
 interpreters = use_extension("@aspect_rules_py//py/unstable:extension.bzl", "python_interpreters")
-interpreters.toolchain(python_version = "3.14", is_default = True)
+interpreters.toolchain(
+    is_default = True,
+    python_version = "3.14",
+)
 use_repo(interpreters, "python_interpreters")
+
 register_toolchains("@python_interpreters//:all")
 
 # Setup internal tools
@@ -21,7 +27,10 @@ use_repo(tools, "rules_py_tools")
 
 # Setup linting
 lint_tools = use_extension("@aspect_rules_lint//lint:extensions.bzl", "tools")
-lint_tools.vale(name = "vale", tag = "v3.1.0")
+lint_tools.vale(
+    name = "vale",
+    tag = "v3.1.0",
+)
 use_repo(
     lint_tools,
     "vale_Linux_64-bit",
@@ -29,7 +38,6 @@ use_repo(
     "vale_macOS_64-bit",
     "vale_macOS_arm64",
 )
-
 
 # Setup uv and parse the lockfile
 

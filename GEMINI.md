@@ -27,6 +27,6 @@ This project follows strict engineering standards to ensure code quality, mainta
 ## Build & Tooling
 - **Build System**: Bazel (Bzlmod enabled).
 - **Dependency Management**: `uv` (ingest `uv.lock`). Unused dependencies must be rigorously removed from `pyproject.toml`.
-- **Linting**: Pylint via Bazel aspect.
-- **Formatting**: Ruff via Bazel multirun.
+- **Linting**: Pylint, Ruff, Bandit, Flake8, Ty, and Buildifier via Bazel aspects.
+- **Formatting**: Ruff and Buildifier via Bazel multirun.
 - **Testing**: Pytest via Bazel `py_test`.
