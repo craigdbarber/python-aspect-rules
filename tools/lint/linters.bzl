@@ -29,3 +29,8 @@ flake8 = lint_flake8_aspect(
     binary = Label("//tools/lint:flake8"),
     config = Label("//:.flake8"),
 )
+
+ty = lint_ty_aspect(
+    binary = Label("@aspect_rules_lint//lint:ty_bin"),
+    config = Label("//:pyproject.toml"),
+)
