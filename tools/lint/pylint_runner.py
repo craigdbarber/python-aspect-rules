@@ -1,8 +1,4 @@
-"""A runner for pylint integration in Bazel.
-
-This script provides an entry point to run pylint as a binary target
-within the Bazel build, allowing for hermetic linting.
-"""
+"""A runner for pylint integration in Bazel."""
 
 import sys
 

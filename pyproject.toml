@@ -16,7 +16,6 @@ dependencies = [
     "cython>=3.2.4",
     "flake8",
     "pydoclint",
-    "mypy",
     "coverage",
 ]
 

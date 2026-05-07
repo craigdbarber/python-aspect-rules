@@ -27,10 +27,5 @@ bandit = lint_bandit_aspect(
 
 flake8 = lint_flake8_aspect(
     binary = Label("//tools/lint:flake8"),
-    config = Label("//:.flake8"), # We might need to create this
-)
-
-ty = lint_ty_aspect(
-    binary = Label("@aspect_rules_lint//lint:ty_bin"),
-    config = Label("//:pyproject.toml"),
+    config = Label("//:.flake8"),
 )
