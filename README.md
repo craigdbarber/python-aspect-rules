@@ -10,11 +10,12 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
   - [Dependency Management](#dependency-management)
   - [Formatting & Linting](#formatting--linting)
 - [Usage Examples](#usage-examples)
-  - [Running the Application](#running-the-application)
-  - [Running Tests](#running-tests)
-  - [Running Audits (Linting)](#running-audits-linting)
-  - [Formatting](#formatting)
-  - [Adding Dependencies](#adding-dependencies)
+- [Running the Application](#running-the-application)
+- [Running Tests](#running-tests)
+- [Running Audits (Linting)](#running-audits-linting)
+- [Formatting](#formatting)
+- [Adding Dependencies](#adding-dependencies)
+- [Deep Dives & Blog Posts](#deep-dives--blog-posts)
 - [Getting Started: Adopting the Blueprint](#getting-started-adopting-the-blueprint)
 - [Technology Stack](#technology-stack)
 
@@ -23,12 +24,11 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
 - **Python 3.14**: Utilizing the latest Python features and hermetic toolchains.
 - **Bazel (Bzlmod)**: High-performance build system with modular dependency management.
 - **uv Integration**: Fast, reliable Python dependency resolution and locking.
-- **Automated Formatting**: Ruff-based formatting integrated into the Bazel workflow.
-- **Advanced Linting**: Combined Pylint, Ruff, Vale, Bandit, Flake8, and Ty audits.
+- **Automated Formatting**: Ruff and Buildifier-based formatting integrated into the Bazel workflow.
+- **Advanced Linting**: Combined Pylint, Ruff, Vale, Bandit, Flake8, Ty, and Buildifier audits.
 - **Unit Testing**: Native Pytest integration with hermetic execution.
 
 ## Architecture
-
 For a detailed deep-dive into the build system design, dependencies, and tool integrations, see the [Build Architecture & Design](build-architecture.md) document.
 
 ## Prerequisites
@@ -48,7 +48,7 @@ uv lock
 Bazel automatically ingests `uv.lock` via the `uv` module extension.
 
 ### Formatting & Linting
-Formatting is handled by **Ruff** and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds (except in CI, where it is enforced via a check).
+Formatting is handled by **Ruff** (for Python) and **Buildifier** (for Bazel/Starlark files) and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds (except in CI, where it is enforced via a check).
 
 Linting is configured as Bazel aspects:
 - **Pylint**: For deep logic and performance analysis.
@@ -57,6 +57,7 @@ Linting is configured as Bazel aspects:
 - **Bandit**: Dedicated security audit.
 - **Flake8**: Traditional style enforcement.
 - **Ty**: Fast, Rust-based type checking.
+- **Buildifier**: Linting for Bazel `BUILD`, `WORKSPACE`, and `.bzl` files.
 
 ## Usage Examples
 
@@ -109,6 +110,11 @@ uv add requests
 uv lock
 bazel run //:main
 ```
+
+## Deep Dives & Blog Posts
+
+- **[How to Finally Fix "Works on My Machine" with a Hermetic Python Blueprint](blogs/index.html)**: A deep dive into the philosophy and implementation of this project, presented in a blog post format.
+- **[Build Architecture & Design](build-architecture.md)**: Detailed technical documentation of the build system.
 
 ## Getting Started: Adopting the Blueprint
 

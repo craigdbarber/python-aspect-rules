@@ -37,6 +37,7 @@ flowchart TD
         BazelBin -->|"Bandit Aspect"| Bandit["Security Audit"]
         BazelBin -->|"Flake8 Aspect"| Flake8["Style & Syntax"]
         BazelBin -->|"Ty Aspect"| Ty["Type Checking"]
+        BazelBin -->|"Buildifier Aspect"| Buildifier["Bazel/Starlark Lint"]
         BazelBin -->|"Tests"| Pytest["Native Pytest Integration"]
     end
 ```
@@ -48,7 +49,7 @@ The project uses **Bazelisk** to manage Bazel itself. It ensures that every deve
 
 ### 2. The Interceptor: `tools/bazel`
 The [`tools/bazel`](tools/bazel) script is a wrapper that intercepts all commands before they reach the Bazel binary.
-- **Local Development**: It automatically triggers code formatting via Ruff before executing `build`, `test`, or `run` commands.
+- **Local Development**: It automatically triggers code formatting via **Ruff** and **Buildifier** before executing `build`, `test`, or `run` commands.
 - **CI/CD Safety**: It detects CI environments (GitHub Actions) and disables automatic modifications to ensure the build remains immutable and verifiable.
 
 ### 3. Dependency Management: `uv`
@@ -68,6 +69,7 @@ Linting is decoupled from the main build graph using Bazel Aspects defined in [`
 - **Bandit**: Dedicated security audit aspect.
 - **Flake8**: Traditional Python style and syntax enforcement.
 - **Ty**: Fast, Rust-based type checking and diagnostic tool.
+- **Buildifier**: Ensures Bazel `BUILD`, `WORKSPACE`, and `.bzl` files follow standard formatting and best practices.
 
 ### Security Auditing (Bandit)
 Security is enforced via **Ruff-Bandit** and a dedicated **Bandit aspect**. This ensures that security checks are run automatically during `bazel build --config=lint //...`.
