@@ -10,7 +10,7 @@ from pylint import lint
 
 
 def main() -> None:
-    """Main entrypoint for the pylint runner."""
+    """Run the pylint runner."""
     lint.Run(sys.argv[1:])
 
 

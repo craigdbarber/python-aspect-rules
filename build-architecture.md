@@ -34,6 +34,9 @@ flowchart TD
         BazelBin -->|"Pylint Aspect"| Pylint["Logic & Performance"]
         BazelBin -->|"Ruff Aspect"| Ruff["Security & Style"]
         BazelBin -->|"Vale Aspect"| ValeAspect["Documentation/Prose"]
+        BazelBin -->|"Bandit Aspect"| Bandit["Security Audit"]
+        BazelBin -->|"Flake8 Aspect"| Flake8["Style & Syntax"]
+        BazelBin -->|"Ty Aspect"| Ty["Type Checking"]
         BazelBin -->|"Tests"| Pytest["Pytest Runner"]
     end
 ```
@@ -60,11 +63,14 @@ The project employs a multi-layered approach to code quality and security.
 ### Linting via Aspects
 Linting is decoupled from the main build graph using Bazel Aspects defined in [`tools/lint/linters.bzl`](tools/lint/linters.bzl). This allows audits to run in parallel without affecting the compilation or execution of the libraries themselves.
 - **Pylint**: Used for deep logical analysis and performance audits.
-- **Ruff**: Handles style enforcement and fast security checks.
+- **Ruff**: Handles style enforcement and fast security checks (including docstring rules).
 - **Vale**: Used for Markdown linting and prose style enforcement.
+- **Bandit**: Dedicated security audit aspect.
+- **Flake8**: Traditional Python style and syntax enforcement.
+- **Ty**: Fast, Rust-based type checking and diagnostic tool.
 
 ### Security Auditing (Bandit)
-Security is enforced via **Ruff-Bandit**, which is integrated into the standard linting workflow for immediate developer feedback. This ensures that security checks are run automatically during `bazel build --config=lint //...`.
+Security is enforced via **Ruff-Bandit** and a dedicated **Bandit aspect**. This ensures that security checks are run automatically during `bazel build --config=lint //...`.
 
 ### Markdown Quality Control
 Markdown files are linted using **Vale** to ensure documentation standards are met.

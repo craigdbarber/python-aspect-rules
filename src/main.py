@@ -6,7 +6,7 @@ from src.lib import fetch_data
 
 
 def main() -> None:
-    """Fetches and prints data from httpbin.org using the library.
+    """Fetch and print data from httpbin.org using the library.
 
     This function demonstrates the basic usage of the fetch_data utility
     to retrieve JSON data from a public API.

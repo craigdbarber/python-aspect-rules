@@ -12,6 +12,8 @@ py_binary(
         "@pypi//requests",
         "@pypi//pytest",
         "@pypi//bandit",
+        "@pypi//flake8",
+        "@pypi//pydoclint",
     ],
 )
 
@@ -21,6 +23,22 @@ py_binary(
     main = "bandit_runner.py",
     visibility = ["//visibility:public"],
     deps = ["@pypi//bandit"],
+)
+
+py_binary(
+    name = "flake8",
+    srcs = ["flake8_runner.py"],
+    main = "flake8_runner.py",
+    visibility = ["//visibility:public"],
+    deps = ["@pypi//flake8"],
+)
+
+py_binary(
+    name = "pydoclint",
+    srcs = ["pydoclint_runner.py"],
+    main = "pydoclint_runner.py",
+    visibility = ["//visibility:public"],
+    deps = ["@pypi//pydoclint"],
 )
 
 

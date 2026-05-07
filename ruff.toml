@@ -2,7 +2,7 @@ line-length = 88
 target-version = "py314"
 
 [lint]
-select = ["E", "F", "I", "W", "UP", "S"]
+select = ["E", "F", "I", "W", "UP", "S", "D"]
 ignore = ["S101"]
 
 [format]

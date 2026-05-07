@@ -14,6 +14,10 @@ dependencies = [
     "wheel>=0.47.0",
     "bandit>=1.9.4",
     "cython>=3.2.4",
+    "flake8",
+    "pydoclint",
+    "mypy",
+    "coverage",
 ]
 
 [build-system]
@@ -27,3 +31,9 @@ packages = ["src"]
 source-roots = ["src"]
 init-hook = "import sys; sys.path.append('.')"
 ignore-paths = ["venv", ".venv"]
+
+[tool.bandit]
+skips = ["B101"]
+
+[tool.ty.rules]
+"unresolved-import" = "ignore"
