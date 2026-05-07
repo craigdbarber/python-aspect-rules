@@ -15,7 +15,6 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
 - [Running Audits (Linting)](#running-audits-linting)
 - [Formatting](#formatting)
 - [Adding Dependencies](#adding-dependencies)
-- [Deep Dives & Blog Posts](#deep-dives--blog-posts)
 - [Getting Started: Adopting the Blueprint](#getting-started-adopting-the-blueprint)
 - [Technology Stack](#technology-stack)
 
@@ -110,10 +109,6 @@ uv add requests
 uv lock
 bazel run //:main
 ```
-
-## Deep Dives & Blog Posts
-
-- **[Build Architecture & Design](build-architecture.md)**: Detailed technical documentation of the build system.
 
 ## Getting Started: Adopting the Blueprint
 
