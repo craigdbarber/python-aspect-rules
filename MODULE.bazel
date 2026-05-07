@@ -1,6 +1,6 @@
 module(
     name = "bazel_python_hermetic_blueprint",
-    version = "1.0",
+    version = "0.3.0",
 )
 
 bazel_dep(name = "aspect_rules_py", version = "1.11.2")
