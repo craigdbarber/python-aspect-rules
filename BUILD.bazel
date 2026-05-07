@@ -15,7 +15,7 @@ filegroup(
 )
 
 sh_binary(
-    name = "vale_macos", 
+    name = "vale_macos",
     srcs = select({
         "@platforms//cpu:arm64": ["@vale_macOS_arm64//:vale"],
         "//conditions:default": ["@vale_macOS_64-bit//:vale"],
@@ -46,16 +46,16 @@ py_library(
     name = "lib",
     srcs = ["src/lib.py"],
     imports = ["."],
-    deps = ["@pypi//requests"],
     visibility = ["//visibility:public"],
+    deps = ["@pypi//requests"],
 )
 
 py_binary(
     name = "main",
     srcs = ["src/main.py"],
     imports = ["."],
-    deps = [":lib"],
     visibility = ["//visibility:public"],
+    deps = [":lib"],
 )
 
 # --- Bandit ---
@@ -77,4 +77,3 @@ py_test(
         "@pypi//pytest",
     ],
 )
-
