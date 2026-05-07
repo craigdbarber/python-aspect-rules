@@ -14,7 +14,7 @@ filegroup(
 )
 
 sh_binary(
-    name = "vale_macos",
+    name = "vale_macos", 
     srcs = select({
         "@platforms//cpu:arm64": ["@vale_macOS_arm64//:vale"],
         "//conditions:default": ["@vale_macOS_64-bit//:vale"],
@@ -81,19 +81,3 @@ py_test(
     ],
 )
 
-# --- Pylint ---
-
-py_test(
-    name = "pylint_test",
-    srcs = glob([
-        "src/**/*.py",
-        "tests/**/*.py",
-    ]),
-    imports = ["."],
-    main = "tests/run_pylint.py",
-    deps = [
-        "@pypi//pylint",
-        "@pypi//requests",
-        "@pypi//pytest",
-    ],
-)

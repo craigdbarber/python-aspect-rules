@@ -14,5 +14,6 @@ def fetch_data(url: str) -> dict[str, Any]:
     Returns:
         A dictionary containing the JSON response.
     """
+    # myVar = ""
     response = requests.get(url, timeout=5)
     return response.json()

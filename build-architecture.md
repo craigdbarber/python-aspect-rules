@@ -31,10 +31,10 @@ flowchart TD
     
     subgraph AUDIT ["Build & Audit"]
         BazelBin --> Targets["Build Targets"]
-        BazelBin -->|"Aspects"| Linters["Pylint, Ruff & Vale Aspects"]
+        BazelBin -->|"Pylint Aspect"| Pylint["Logic & Performance"]
+        BazelBin -->|"Ruff Aspect"| Ruff["Security & Style"]
+        BazelBin -->|"Vale Aspect"| ValeAspect["Documentation/Prose"]
         BazelBin -->|"Tests"| Pytest["Pytest Runner"]
-        BazelBin -->|"Security"| Bandit["Bandit Standalone Test"]
-        BazelBin -->|"Docs"| Vale["Vale Documentation Test"]
     end
 ```
 
@@ -64,15 +64,12 @@ Linting is decoupled from the main build graph using Bazel Aspects defined in [`
 - **Vale**: Used for Markdown linting and prose style enforcement.
 
 ### Security Auditing (Bandit)
-Security is enforced at two levels:
-1. **Ruff-Bandit**: Integrated into the standard linting workflow for immediate developer feedback.
-2. **Standalone Audit**: A dedicated [`py_test`](tools/lint/BUILD.bazel) target (`//tools/lint:bandit_test`) that performs a comprehensive recursive scan of the [`src/`](src/) directory.
+Security is enforced via **Ruff-Bandit**, which is integrated into the standard linting workflow for immediate developer feedback. This ensures that security checks are run automatically during `bazel build --config=lint //...`.
 
 ### Markdown Quality Control
 Markdown files are linted using **Vale** to ensure documentation standards are met.
 1. **Linting Aspect**: Integrated into the standard linting workflow via `linters.bzl`. It runs automatically during `bazel build --config=lint //...`.
-2. **Linting Test**: A dedicated `sh_test` target (`//tools/lint:markdown_lint_test`) provides explicit validation in CI and local testing.
-3. **Hermeticity**: Vale binaries are managed as external repositories and selected based on the execution platform using Bazel's `select` mechanism.
+2. **Hermeticity**: Vale binaries are managed as external repositories and selected based on the execution platform using Bazel's `select` mechanism.
 
 ## Infrastructure Dependencies
 

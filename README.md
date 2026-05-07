@@ -51,9 +51,9 @@ Bazel automatically ingests `uv.lock` via the `uv` module extension.
 Formatting is handled by **Ruff** and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds (except in CI, where it is enforced via a check).
 
 Linting is configured as Bazel aspects:
-- **Pylint**: For deep logic and performance analysis.
-- **Ruff (Bandit)**: For automated security auditing.
-- **Bandit (Standalone)**: A dedicated test target for deep security analysis.
+- Pylint: For deep logic and performance analysis.
+- Ruff (Bandit): For automated style enforcement and security auditing.
+- Vale: For documentation and prose linting.
 
 ## Usage Examples
 
@@ -71,26 +71,15 @@ To execute unit tests via Pytest:
 bazel test //:test_lib
 ```
 
-To run the dedicated security audit:
-
-```bash
-bazel test //tools/lint:bandit_test
-```
-
-To run the markdown documentation audit:
-
-```bash
-bazel test //tools/lint:markdown_lint_test
-```
-
 ### Running Audits (Linting)
-To run logic and security audits across the entire project:
+To run logic, security, and documentation audits across the entire project:
 
 ```bash
 bazel build --config=lint //...
 ```
 
 You can also run the standalone Bandit tool via an alias:
+
 
 ```bash
 bazel run //:bandit -- -r src
