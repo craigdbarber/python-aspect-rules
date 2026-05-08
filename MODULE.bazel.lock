@@ -247,122 +247,10 @@
   },
   "selectedYankedVersions": {},
   "moduleExtensions": {
-    "@@aspect_rules_lint+//lint:extensions.bzl%tools": {
-      "general": {
-        "bzlTransitiveDigest": "ffJSmfVduH0jQ25BLd690qCssKgufnF3nw1GbNR+eSs=",
-        "usagesDigest": "2IbHUBJeTWolID87YKW5dq+3KXeCY3M/bP9mW4nHVHQ=",
-        "recordedFileInputs": {},
-        "recordedDirentsInputs": {},
-        "envVariables": {},
-        "generatedRepoSpecs": {
-          "vale_Linux_386": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Linux_386.tar.gz",
-              "sha256": "81564dde82bf90b3552f0f181fe56803a8ab727c65c350c82290120a9ca47fa3",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_Linux_64-bit": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Linux_64-bit.tar.gz",
-              "sha256": "7c62da29c53dc58f836327bda3a763b7862633d7f957c1abf12e661c2d65a3e0",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_Linux_arm64": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Linux_arm64.tar.gz",
-              "sha256": "8f83cf1345685f3da9c2a69a7952beab3d38f961b13d7a339156e1187d11f8f5",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_macOS_64-bit": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_macOS_64-bit.tar.gz",
-              "sha256": "d00806911d713ee5325cf6aa377a0d48dd44d418c35f66e7527abf113b89cd48",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_macOS_arm64": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_macOS_arm64.tar.gz",
-              "sha256": "78baa52b88fff4bbebd88e0dcc8504932bb750b787a8fb3d2d4966e8e38dac60",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_Windows_386": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Windows_386.zip",
-              "sha256": "bf87bf2718cb425bce7fd201a635b4be3ec6efa4e361aaf64c62b3a90587c33d",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_Windows_64-bit": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Windows_64-bit.zip",
-              "sha256": "8e0bff5ab631bcb2d05dfb01599ff9256a9d46b7163f0dcb75b99321d54fd992",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          },
-          "vale_Windows_arm64": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
-            "attributes": {
-              "url": "https://github.com/errata-ai/vale/releases/download/v3.1.0/vale_3.1.0_Windows_arm64.zip",
-              "sha256": "ac3111fa52c322cb5aaf3c321dbe170fb1f16977847a2a2329272606f45a806c",
-              "build_file_content": "exports_files([\"vale\", \"vale.exe\"])"
-            }
-          }
-        },
-        "recordedRepoMappingEntries": [
-          [
-            "aspect_rules_lint+",
-            "aspect_rules_lint",
-            "aspect_rules_lint+"
-          ],
-          [
-            "aspect_rules_lint+",
-            "aspect_tools_telemetry_report",
-            "aspect_tools_telemetry++telemetry+aspect_tools_telemetry_report"
-          ],
-          [
-            "aspect_rules_lint+",
-            "bazel_features",
-            "bazel_features+"
-          ],
-          [
-            "aspect_rules_lint+",
-            "bazel_lib",
-            "bazel_lib+"
-          ],
-          [
-            "aspect_rules_lint+",
-            "bazel_tools",
-            "bazel_tools"
-          ],
-          [
-            "bazel_features+",
-            "bazel_features_globals",
-            "bazel_features++version_extension+bazel_features_globals"
-          ],
-          [
-            "bazel_features+",
-            "bazel_features_version",
-            "bazel_features++version_extension+bazel_features_version"
-          ]
-        ]
-      }
-    },
     "@@aspect_rules_py+//py:extensions.bzl%py_tools": {
       "general": {
         "bzlTransitiveDigest": "zZ3MQF8ASEemujDrw7ScWhzGwJPPVRDdNMQVrnK9wzs=",
-        "usagesDigest": "4UUK24zU3/yvpdG1lr+sKznPGF2qGd7H6YP3gPChUNk=",
+        "usagesDigest": "IeB9XnrHPllk/Yd8oPgPxYYVu/1sQ9jyd6zdXU4fsvY=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -425,7 +313,7 @@
     "@@aspect_rules_py+//py/unstable:extension.bzl%python_interpreters": {
       "general": {
         "bzlTransitiveDigest": "38T8ePMB4kdzOilmSfMGgOaNYtGupswrqu8TMnd1Q+I=",
-        "usagesDigest": "gNxErimH1JF0OctZMRH1+46DEAdVL930gsyqDuc+6/0=",
+        "usagesDigest": "wA4C5MddUCzI7oSeydVrFRybptwZPRR8eLOLtx3IfUM=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},

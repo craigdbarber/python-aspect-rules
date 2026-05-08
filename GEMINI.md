@@ -11,7 +11,7 @@ This project follows strict engineering standards to ensure code quality, mainta
 
 ## Git Workflow
 - **Branching**: Utilize the **Git Flow** branch structure (`feature/`, `bugfix/`, `release/`, `hotfix/`).
-- **Submission**: Direct pushes to the `main` branch are strictly prohibited. All changes must be submitted via **Pull Requests** from a dedicated feature or fix branch.
+- **Submission**: Pushing to the `main` branch is allowed only after the user has reviewed local changes and provided explicit permission.
 - **Review Protocol**: Gemini must NOT automatically push changes to GitHub. All changes must be reviewed locally by the user. Gemini will only push after receiving explicit instruction to do so.
 - **Commits**: All changes must be committed with descriptive, readable, and well-structured commit messages.
 - **Code Reviews**: Every Pull Request must undergo a rigorous code review before merging. Reviews should focus on adherence to idiomatic code, readability, security best practices, and performance optimization.

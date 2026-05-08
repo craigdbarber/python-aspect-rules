@@ -9,14 +9,12 @@ dependencies = [
     "pytest",
     "pylint",
     "ruff",
-    "build>=1.5.0",
+    "bandit>=1.9.4",
+    "flake8",
+    "build",
+    "cython>=3.2.4",
     "setuptools>=82.0.1",
     "wheel>=0.47.0",
-    "bandit>=1.9.4",
-    "cython>=3.2.4",
-    "flake8",
-    "pydoclint",
-    "coverage",
 ]
 
 [build-system]

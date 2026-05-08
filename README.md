@@ -24,7 +24,7 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
 - **Bazel (Bzlmod)**: High-performance build system with modular dependency management.
 - **uv Integration**: Fast, reliable Python dependency resolution and locking.
 - **Automated Formatting**: Ruff and Buildifier-based formatting integrated into the Bazel workflow.
-- **Advanced Linting**: Combined Pylint, Ruff, Vale, Bandit, Flake8, Ty, and Buildifier audits.
+- **Advanced Linting**: Combined Pylint, Ruff, Bandit, Flake8, Ty, and Buildifier audits.
 - **Unit Testing**: Native Pytest integration with hermetic execution.
 
 ## Architecture
@@ -52,7 +52,6 @@ Formatting is handled by **Ruff** (for Python) and **Buildifier** (for Bazel/Sta
 Linting is configured as Bazel aspects:
 - **Pylint**: For deep logic and performance analysis.
 - **Ruff**: For fast security, style, and docstring auditing.
-- **Vale**: For documentation and prose linting.
 - **Bandit**: Dedicated security audit.
 - **Flake8**: Traditional style enforcement.
 - **Ty**: Fast, Rust-based type checking.
@@ -165,7 +164,6 @@ This project leverages the following best-in-class tools and libraries:
 - [**Bandit**](https://bandit.readthedocs.io/): A tool designed to find common security issues in Python code.
 - [**Flake8**](https://flake8.pycqa.org/): A traditional tool for checking style and syntax.
 - [**Ty**](https://docs.astral.sh/ty/): A fast, Rust-based type checker for Python.
-- [**Vale**](https://vale.sh): A syntax-aware linter for prose and documentation.
 - [**aspect_rules_lint**](https://github.com/aspect-build/rules_lint): A Bazel framework for running linters and formatters.
 
 ### Python Libraries
