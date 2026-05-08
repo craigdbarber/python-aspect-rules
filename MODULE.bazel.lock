@@ -250,7 +250,7 @@
     "@@aspect_rules_py+//py:extensions.bzl%py_tools": {
       "general": {
         "bzlTransitiveDigest": "zZ3MQF8ASEemujDrw7ScWhzGwJPPVRDdNMQVrnK9wzs=",
-        "usagesDigest": "IeB9XnrHPllk/Yd8oPgPxYYVu/1sQ9jyd6zdXU4fsvY=",
+        "usagesDigest": "25lxkQl/0HWjVWt/WZBFnMtnf9YZ9f4RkAMr7Ebkh/A=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -313,7 +313,7 @@
     "@@aspect_rules_py+//py/unstable:extension.bzl%python_interpreters": {
       "general": {
         "bzlTransitiveDigest": "38T8ePMB4kdzOilmSfMGgOaNYtGupswrqu8TMnd1Q+I=",
-        "usagesDigest": "wA4C5MddUCzI7oSeydVrFRybptwZPRR8eLOLtx3IfUM=",
+        "usagesDigest": "ESEUHUvgwGU6/huIKabNpOJMhmYZ6mIrnjclF3pmBb4=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
