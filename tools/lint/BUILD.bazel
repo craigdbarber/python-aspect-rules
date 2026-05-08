@@ -7,13 +7,7 @@ py_binary(
     srcs = ["pylint_runner.py"],
     main = "pylint_runner.py",
     visibility = ["//visibility:public"],
-    deps = [
-        "@pypi//bandit",
-        "@pypi//flake8",
-        "@pypi//pylint",
-        "@pypi//pytest",
-        "@pypi//requests",
-    ],
+    deps = ["@pypi//python_aspect_rules:lib"],
 )
 
 py_binary(
