@@ -62,7 +62,7 @@ The project employs a multi-layered approach to code quality and security.
 
 ### Linting via Aspects
 Linting is decoupled from the main build graph using Bazel Aspects defined in [`tools/lint/linters.bzl`](tools/lint/linters.bzl). This allows audits to run in parallel without affecting the compilation or execution of the libraries themselves.
-- **Pylint**: Used for deep logical analysis and performance audits.
+- **Pylint**: Used for deep logical analysis and performance audits. The Pylint runner automatically inherits all project dependencies from `pyproject.toml`.
 - **Ruff**: Handles style enforcement and fast security checks (including docstring rules).
 - **Bandit**: Dedicated security audit aspect.
 - **Flake8**: Traditional Python style and syntax enforcement.

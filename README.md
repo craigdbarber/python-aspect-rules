@@ -74,7 +74,7 @@ bazel test //:test_lib
 ```
 
 ### Running Audits (Linting)
-To run logic, security, and documentation audits across the entire project:
+To run logic and security audits across the entire project:
 
 ```bash
 bazel build --config=lint //...
