@@ -1,29 +1,11 @@
-load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_library", "py_test")
+load("@aspect_rules_py//py:defs.bzl", "py_binary")
+load("//tools/build:build_defs.bzl", "py_library", "py_test")
 
 exports_files([
     "ruff.toml",
     "pyproject.toml",
     "src/__init__.py",
-    ".flake8",
 ])
-
-# --- Libraries and Binaries ---
-
-py_library(
-    name = "lib",
-    srcs = ["src/lib.py"],
-    imports = ["."],
-    visibility = ["//visibility:public"],
-    deps = ["@pypi//requests"],
-)
-
-py_binary(
-    name = "main",
-    srcs = ["src/main.py"],
-    imports = ["."],
-    visibility = ["//visibility:public"],
-    deps = [":lib"],
-)
 
 # --- Bandit ---
 
@@ -32,16 +14,26 @@ alias(
     actual = "//tools/lint:bandit",
 )
 
-# --- Pytest ---
+# --- Libraries and Binaries ---
+
+py_library(
+    name = "lib",
+    srcs = ["src/lib.py"],
+    visibility = ["//visibility:public"],
+    deps = ["@pypi//requests"],
+)
+
+py_binary(
+    name = "main",
+    srcs = ["src/main.py"],
+    visibility = ["//visibility:public"],
+    deps = [":lib"],
+)
+
+# --- Tests ---
 
 py_test(
     name = "test_lib",
     srcs = ["tests/test_lib.py"],
-    imports = ["."],
-    pytest_main = True,
-    deps = [
-        ":lib",
-        "@pypi//pytest",
-        "@pypi//requests",
-    ],
+    deps = [":lib"],
 )
