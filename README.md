@@ -24,7 +24,7 @@ A modern Python project demonstrating the integration of **Bazel** (via `aspect_
 - **Bazel (Bzlmod)**: High-performance build system with modular dependency management.
 - **uv Integration**: Fast, reliable Python dependency resolution and locking.
 - **Automated Formatting**: Ruff and Buildifier-based formatting integrated into the Bazel workflow.
-- **Advanced Linting**: Combined Pylint, Ruff, Bandit, Flake8, Ty, and Buildifier audits.
+- **Advanced Linting**: Combined Ruff, Bandit, Ty, and Buildifier audits.
 - **Unit Testing**: Native Pytest integration with hermetic execution.
 
 ## Architecture
@@ -50,10 +50,8 @@ Bazel automatically ingests `uv.lock` via the `uv` module extension.
 Formatting is handled by **Ruff** (for Python) and **Buildifier** (for Bazel/Starlark files) and is automatically executed by a Bazel wrapper script (`tools/bazel`) before builds (except in CI, where it is enforced via a check).
 
 Linting is configured as Bazel aspects:
-- **Pylint**: For deep logic and performance analysis.
 - **Ruff**: For fast security, style, and docstring auditing.
 - **Bandit**: Dedicated security audit.
-- **Flake8**: Traditional style enforcement.
 - **Ty**: Fast, Rust-based type checking.
 - **Buildifier**: Linting for Bazel `BUILD`, `WORKSPACE`, and `.bzl` files.
 
@@ -120,9 +118,11 @@ Follow these steps to incorporate this architecture into your own project:
    rm -rf .git && git init
    ```
 
-2. **Configure**: Update the project name in `MODULE.bazel` and `pyproject.toml`.
+2. **Configure**: Update the project name in the following files:
    - In `MODULE.bazel`: Change `module(name = "bazel_python_hermetic_blueprint", ...)`
    - In `pyproject.toml`: Update the `name`, `version`, and `description`.
+   - In `.bazelrc`: Change `common --@pypi//venv=python-aspect-rules`.
+   - In `tools/lint/BUILD.bazel`: Change `deps = ["@pypi//python_aspect_rules:lib"]`
 
 3. **Develop**: Place your application code in `src/` and tests in `tests/`.
 
@@ -160,7 +160,6 @@ This project leverages the following best-in-class tools and libraries:
 
 ### Linting, Formatting & Security
 - [**Ruff**](https://docs.astral.sh/ruff/): An extremely fast Python linter and code formatter.
-- [**Pylint**](https://pylint.readthedocs.io/): A comprehensive static code analysis tool for Python.
 - [**Bandit**](https://bandit.readthedocs.io/): A tool designed to find common security issues in Python code.
 - [**Flake8**](https://flake8.pycqa.org/): A traditional tool for checking style and syntax.
 - [**Ty**](https://docs.astral.sh/ty/): A fast, Rust-based type checker for Python.

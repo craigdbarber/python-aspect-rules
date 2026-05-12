@@ -12,7 +12,7 @@ def main() -> None:
     to retrieve JSON data from a public API.
     """
     print("Fetching data from httpbin.org...")
-    try:
+    try:  # pylint: disable=too-many-try-statements
         data = fetch_data("https://httpbin.org/get")
         print(f"Success! URL from response: {data.get('url')}")
     except Exception as e:  # pylint: disable=broad-exception-caught

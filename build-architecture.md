@@ -31,10 +31,8 @@ flowchart TD
     
     subgraph AUDIT ["Build & Audit"]
         BazelBin --> Targets["Build Targets"]
-        BazelBin -->|"Pylint Aspect"| Pylint["Logic & Performance"]
         BazelBin -->|"Ruff Aspect"| Ruff["Security & Style"]
         BazelBin -->|"Bandit Aspect"| Bandit["Security Audit"]
-        BazelBin -->|"Flake8 Aspect"| Flake8["Style & Syntax"]
         BazelBin -->|"Ty Aspect"| Ty["Type Checking"]
         BazelBin -->|"Buildifier Aspect"| Buildifier["Bazel/Starlark Lint"]
         BazelBin -->|"Tests"| Pytest["Native Pytest Integration"]
@@ -62,10 +60,8 @@ The project employs a multi-layered approach to code quality and security.
 
 ### Linting via Aspects
 Linting is decoupled from the main build graph using Bazel Aspects defined in [`tools/lint/linters.bzl`](tools/lint/linters.bzl). This allows audits to run in parallel without affecting the compilation or execution of the libraries themselves.
-- **Pylint**: Used for deep logical analysis and performance audits. The Pylint runner automatically inherits all project dependencies from `pyproject.toml`.
 - **Ruff**: Handles style enforcement and fast security checks (including docstring rules).
 - **Bandit**: Dedicated security audit aspect.
-- **Flake8**: Traditional Python style and syntax enforcement.
 - **Ty**: Fast, Rust-based type checking and diagnostic tool.
 - **Buildifier**: Ensures Bazel `BUILD`, `WORKSPACE`, and `.bzl` files follow standard formatting and best practices.
 
